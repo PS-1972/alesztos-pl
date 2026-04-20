@@ -95,12 +95,12 @@ nav {
   padding: 0 32px;
 }
 .nav-inner {
-  max-width: 860px; margin: 0 auto; height: 70px;
+  max-width: 660px; margin: 0 auto; height: 70px;
   display: flex; align-items: center; justify-content: space-between;
 }
 .logo {
   font-family: var(--font-headings);
-  font-size: 32px; font-weight: 700; font-style: italic;
+  font-size: 21px; font-weight: 700; font-style: italic;
   color: var(--terra-dk); text-decoration: none;
 }
 .logo em { color: var(--terra-dk); font-style: italic; }
