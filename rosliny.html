@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rośliny — AleSztos_pl</title>
-<link rel="stylesheet" href="style.css">
-<!--
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rośliny — AleSztos_pl</title>
+  <link rel="stylesheet" href="style.css">
+  <!--
 ╔══════════════════════════════════════════════════════════════════╗
 ║  ROŚLINY — rosliny.html                                          ║
 ║                                                                  ║
@@ -18,115 +19,117 @@
 ╚══════════════════════════════════════════════════════════════════╝
 -->
 </head>
+
 <body>
 
-<div class="blob-wrap">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-  <div class="blob blob-4"></div>
-</div>
-
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo">AleSztos<em>_pl</em></a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="sklep.html">Sklep</a></li>
-        <li><a href="rosliny.html" class="active">Rośliny</a></li>
-        <li><a href="index.html#pobierz">Pobierz</a></li>
-        <li><a href="index.html#omnie">O mnie</a></li>
-      </ul>
-      <button class="cart-btn" onclick="window.location.href='sklep.html'">
-        &#128722; Sklep
-      </button>
-    </div>
-  </div>
-</nav>
-
-<div class="wrap">
-
-  <div class="page-header">
-    <div class="breadcrumb"><a href="index.html">Strona główna</a> / Rośliny</div>
-    <h1>Rośliny doniczkowe</h1>
-    <p>Porady o pielęgnacji, przesadzaniu i uprawie roślin w domu</p>
+  <div class="blob-wrap">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
   </div>
 
-  <section class="section">
-    <div class="section-header">
-      <h2 class="section-title">Wszystkie wpisy o roślinach</h2>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">AleSztos<em>_pl</em></a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="sklep.html">Sklep</a></li>
+          <li><a href="rosliny.html" class="active">Rośliny</a></li>
+          <li><a href="index.html#pobierz">Pobierz</a></li>
+          <li><a href="index.html#omnie">O mnie</a></li>
+        </ul>
+        <button class="cart-btn" onclick="window.location.href='sklep.html'">
+          &#128722; Sklep
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+
+    <div class="page-header">
+      <div class="breadcrumb"><a href="index.html">Strona główna</a> / Rośliny</div>
+      <h1>Rośliny doniczkowe</h1>
+      <p>Porady o pielęgnacji, przesadzaniu i uprawie roślin w domu</p>
     </div>
 
-    <div class="blog-grid">
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Wszystkie wpisy o roślinach</h2>
+      </div>
 
-      <!-- ► NOWE WPISY O ROŚLINACH WSTAWIAJ TUTAJ NA GÓRZE ◄ -->
+      <div class="blog-grid">
 
-      <!-- WPIS WIDEO — rośliny -->
-      <div class="blog-entry glass-card" data-cat="Rośliny">
-        <div class="blog-video">
-          <div class="video-preview" onclick="playVideo(this)">
-            <img src="images/video-przesadzanie-thumb.jpg" alt="Przesadzanie monstery" onerror="this.style.background='rgba(122,174,132,0.15)'">
-            <div class="video-badge">WIDEO</div>
-            <div class="play-btn"></div>
-            <div class="video-duration">1:37</div>
+        <!-- ► NOWE WPISY O ROŚLINACH WSTAWIAJ TUTAJ NA GÓRZE ◄ -->
+
+        <!-- WPIS WIDEO — rośliny -->
+        <div class="blog-entry glass-card" data-cat="Rośliny">
+          <div class="blog-video">
+            <div class="video-preview" onclick="playVideo(this)">
+              <img src="images/video-przesadzanie-thumb.jpg" alt="Przesadzanie monstery"
+                onerror="this.style.background='rgba(122,174,132,0.15)'">
+              <div class="video-badge">WIDEO</div>
+              <div class="play-btn"></div>
+              <div class="video-duration">1:37</div>
+            </div>
+            <div class="video-player">
+              <video controls preload="none" poster="images/video-przesadzanie-thumb.jpg">
+                <source src="videos/Przesadzanie.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje wideo.
+              </video>
+            </div>
           </div>
-          <div class="video-player">
-            <video controls preload="none" poster="images/video-przesadzanie-thumb.jpg">
-              <source src="videos/Przesadzanie.mp4" type="video/mp4">
-              Twoja przeglądarka nie obsługuje wideo.
-            </video>
+          <div class="blog-body">
+            <div class="blog-cat">Rośliny</div>
+            <div class="blog-title">Przesadzanie monstery — jak użyć maty i nie nabrudzić</div>
+            <div class="blog-date">20 kwietnia 2026</div>
           </div>
         </div>
-        <div class="blog-body">
-          <div class="blog-cat">Rośliny</div>
-          <div class="blog-title">Przesadzanie monstery — jak użyć maty i nie nabrudzić</div>
-          <div class="blog-date">20 kwietnia 2026</div>
+
+        <!-- WPIS ARTYKUŁ — monstera -->
+        <div class="blog-entry glass-card" data-cat="Rośliny">
+          <div class="blog-thumb bt2">
+            <img src="images/blog-monstera.jpg" alt="Monstera deliciosa" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Rośliny</div>
+            <div class="blog-title">Monstera deliciosa — jak i kiedy przesadzać?</div>
+            <div class="blog-date">3 kwietnia 2025</div>
+          </div>
         </div>
+
+        <!-- WPIS ARTYKUŁ — fikus -->
+        <div class="blog-entry glass-card" data-cat="Rośliny">
+          <div class="blog-thumb bt5">
+            <img src="images/blog-przyklad5.jpg" alt="Fikus" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Rośliny</div>
+            <div class="blog-title">Fikus — jak dbać żeby nie gubił liści?</div>
+            <div class="blog-date">10 marca 2025</div>
+          </div>
+        </div>
+
       </div>
+    </section>
 
-      <!-- WPIS ARTYKUŁ — monstera -->
-      <div class="blog-entry glass-card" data-cat="Rośliny">
-        <div class="blog-thumb bt2">
-          <img src="images/blog-monstera.jpg" alt="Monstera deliciosa" onerror="this.style.display='none'">
-        </div>
-        <div class="blog-body">
-          <div class="blog-cat">Rośliny</div>
-          <div class="blog-title">Monstera deliciosa — jak i kiedy przesadzać?</div>
-          <div class="blog-date">3 kwietnia 2025</div>
-        </div>
-      </div>
-
-      <!-- WPIS ARTYKUŁ — fikus -->
-      <div class="blog-entry glass-card" data-cat="Rośliny">
-        <div class="blog-thumb bt5">
-          <img src="images/blog-przyklad5.jpg" alt="Fikus" onerror="this.style.display='none'">
-        </div>
-        <div class="blog-body">
-          <div class="blog-cat">Rośliny</div>
-          <div class="blog-title">Fikus — jak dbać żeby nie gubił liści?</div>
-          <div class="blog-date">10 marca 2025</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</div>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">AleSztos_pl</div>
-    <div class="footer-links">
-      <a href="https://www.instagram.com/alesztos_pl/" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:twoj-email@gmail.com">Kontakt</a>
-      <a href="regulamin.html">Regulamin</a>
-    </div>
-    <div class="footer-copy">© 2025 AleSztos_pl — z miłością z Polski</div>
   </div>
-</footer>
 
-<!--
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">AleSztos_pl</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/alesztos_pl/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:twoj-email@gmail.com">Kontakt</a>
+        <a href="regulamin.html">Regulamin</a>
+      </div>
+      <div class="footer-copy">© 2025 AleSztos_pl — z miłością z Polski</div>
+    </div>
+  </footer>
+
+  <!--
 ╔══════════════════════════════════════════════════════════════════╗
 ║  ═══ SZABLON WPISU O ROŚLINIE (artykuł) ═══                     ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -171,15 +174,16 @@ Klasy kolorów: bt2 (zieleń), bt4 (ciemna zieleń), bt5 (brąz), bt6 (mięta)
 </div>
 -->
 
-<script>
-function playVideo(previewEl) {
-  var card = previewEl.closest('.blog-video');
-  var player = card.querySelector('.video-player');
-  var video = player.querySelector('video');
-  previewEl.style.display = 'none';
-  player.classList.add('active');
-  video.play();
-}
-</script>
+  <script>
+    function playVideo(previewEl) {
+      var card = previewEl.closest('.blog-video');
+      var player = card.querySelector('.video-player');
+      var video = player.querySelector('video');
+      previewEl.style.display = 'none';
+      player.classList.add('active');
+      video.play();
+    }
+  </script>
 </body>
+
 </html>
