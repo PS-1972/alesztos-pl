@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AleSztos_pl — szydełko, druty, rośliny</title>
+
+  <!--
+╔══════════════════════════════════════════════════════════════════╗
+║           INSTRUKCJA OBSŁUGI STRONY — AleSztos_pl               ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║  STRUKTURA FOLDERÓW (utwórz obok tego pliku HTML):               ║
+║                                                                  ║
+║  AleSztos_pl_v3.html  ← ten plik                                 ║
+║  fonts/                                                          ║
+║    playfair-regular.ttf                                          ║
+║    playfair-italic.ttf                                           ║
+║    playfair-bold.ttf                                             ║
+║    playfair-bold-italic.ttf                                      ║
+║    lato-light.ttf                                                ║
+║    lato-regular.ttf                                              ║
+║    lato-bold.ttf                                                 ║
+║  images/                                                         ║
+║    hero-avatar.jpg       (400x400 px)                            ║
+║    blog-kocyk-granny.jpg (400x300 px)                            ║
+║    blog-monstera.jpg     (400x300 px)                            ║
+║    blog-przedza-merino.jpg (400x300 px)                          ║
+║    blog-oslonka.jpg      (400x300 px)                            ║
+║    mata-bawelniana-s.jpg (400x400 px)                            ║
+║    mata-lniana-m.jpg     (400x400 px)                            ║
+║    mata-dwustronna-l.jpg (400x400 px)                            ║
+║    autorka.jpg           (200x200 px)                            ║
+║  downloads/               ← PLIKI DO POBRANIA                    ║
+║    wzor-granny-square.pdf                                        ║
+║    wzor-oslonka.pdf                                              ║
+║    pakiet-wiosna.zip                                             ║
+║    ... (dowolne inne pliki: PDF, ZIP, PNG, JPG)                  ║
+║                                                                  ║
+╠══════════════════════════════════════════════════════════════════╣
+║  JAK ZMIENIĆ CZCIONKI:                                           ║
+║                                                                  ║
+║  1. Pobierz czcionki TTF (np. z fonts.google.com lub             ║
+║     gwfh.mranftl.com) i wrzuć do folderu fonts/                  ║
+║  2. Zmień nazwy plików w sekcji @font-face poniżej               ║
+║     (szukaj: === CZCIONKI — ZMIEŃ TUTAJ ===)                     ║
+║  3. Możesz też zmienić font-family na inną parę czcionek         ║
+║     w zmiennych CSS (szukaj: === ZMIENNE CZCIONEK ===)           ║
+║                                                                  ║
+╠══════════════════════════════════════════════════════════════════╣
+║  JAK DODAĆ WPIS DO BLOGA:                                        ║
+║                                                                  ║
+║  Znajdź sekcję: === BLOG — DODAJ NOWE WPISY TUTAJ ===            ║
+║  Skopiuj gotowy szablon wpisu i wypełnij:                        ║
+║    - kategoria (Szydełko / Druty / Rośliny)                      ║
+║    - tytuł wpisu                                                 ║
+║    - datę                                                        ║
+║    - nazwę pliku zdjęcia (wrzuć do folderu images/)              ║
+║  Strona sama wyświetli 4 najnowsze wpisy na stronie głównej.     ║
+║  Starsze wpisy trafiają automatycznie do archiwum.               ║
+║                                                                  ║
+╠══════════════════════════════════════════════════════════════════╣
+║  JAK DODAĆ PRODUKT DO SKLEPU:                                    ║
+║                                                                  ║
+║  Znajdź sekcję: === SKLEP — DODAJ PRODUKTY TUTAJ ===             ║
+║  Skopiuj szablon produktu i wypełnij nazwę, cenę, zdjęcie.       ║
+║                                                                  ║
+╠══════════════════════════════════════════════════════════════════╣
+║  KOSZYK:                                                         ║
+║                                                                  ║
+║  Koszyk jest wbudowany w stronę. Kliknięcie "Do koszyka"         ║
+║  dodaje produkt. Ikona koszyka w nawigacji pokazuje liczbę       ║
+║  produktów. Kliknij ikonę koszyka aby zobaczyć zawartość.        ║
+║  Po złożeniu zamówienia klient dostaje podsumowanie —            ║
+║  Ty dostajesz e-mail (skonfiguruj adres w sekcji KONFIGURACJA).  ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+
+  <style>
+    /* ================================================================
+   === CZCIONKI — ZMIEŃ TUTAJ ===
+   Zamień nazwy plików .ttf na swoje czcionki.
+   Czcionki muszą być w folderze fonts/ obok tego pliku HTML.
+   ================================================================ */
+    @font-face {
+      font-family: 'CzcionkaNaglowkow';
+      src: url('fonts/TektonPro-Bold.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'CzcionkaNaglowkow';
+      src: url('fonts/TektonPro-Bold.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'CzcionkaNaglowkow';
+      src: url('fonts/TektonPro-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'CzcionkaNaglowkow';
+      src: url('fonts/TektonPro-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'CzcionkaTresci';
+      src: url('fonts/TektonPro-Bold.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'CzcionkaTresci';
+      src: url('fonts/TektonPro-Bold.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'CzcionkaTresci';
+      src: url('fonts/TektonPro-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    /* ================================================================
+   === ZMIENNE CZCIONEK ===
+   Zmień 'CzcionkaNaglowkow' i 'CzcionkaTresci' na nazwę
+   swojej czcionki jeśli używasz innej pary.
+   Fallback po przecinku działa gdy czcionka nie jest dostępna.
+   ================================================================ */
+    :root {
+      --font-headings: 'CzcionkaNaglowkow', Georgia, serif;
+      --font-body: 'CzcionkaTresci', Arial, sans-serif;
+
+      /* Kolory — możesz też zmieniać tutaj */
+      --bg: #F7F0E8;
+      --bg2: #F0E6D8;
+      --bg3: #E8D9C8;
+      --terra: #C4622D;
+      --terra-dk: #6E2910;
+      --green: #4A7C59;
+      --green-lt: #C8E0CC;
+      --green-dk: #1E4030;
+      --text: #2A1F1A;
+      --text2: #6B5A50;
+      --text3: #A08878;
+      --border: rgba(180, 140, 110, 0.35);
+      --border2: rgba(180, 140, 110, 0.55);
+      --glass: rgba(255, 250, 244, 0.55);
+      --glass2: rgba(255, 250, 244, 0.75);
+      --cream: #FBF7F2;
+      --shadow: rgba(100, 60, 30, 0.10);
+    }
+
+    /* ================================================================
+   STYLE STRONY — nie musisz tu nic zmieniać
+   ================================================================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      font-weight: 300;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('images/woelna-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      filter: blur(40px) brightness(0.7);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .blob-wrap {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+    }
+
+    .blob-1 {
+      width: 520px;
+      height: 520px;
+      background: #D4855A;
+      top: -120px;
+      left: -140px;
+    }
+
+    .blob-2 {
+      width: 420px;
+      height: 420px;
+      background: #7AAE84;
+      top: 200px;
+      right: -100px;
+    }
+
+    .blob-3 {
+      width: 360px;
+      height: 360px;
+      background: #E8C8A0;
+      bottom: 100px;
+      left: 20%;
+    }
+
+    .blob-4 {
+      width: 280px;
+      height: 280px;
+      background: #C4956A;
+      bottom: -80px;
+      right: 10%;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(242, 218, 171, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 2px solid rgba(235, 131, 12, 0.35);
+      padding: 0 32px;
+    }
+
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--font-headings);
+      font-size: 32px;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--terra-dk);
+      text-decoration: none;
+    }
+
+    .logo em {
+      color: var(--terra-dk);
+      font-style: italic;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      color: var(--terra-dk);
+      text-decoration: none;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--terra);
+    }
+
+    /* KOSZYK IKONA */
+    .cart-btn {
+      background: none;
+      border: 2px solid var(--border2);
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--text2);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .cart-btn:hover {
+      border-color: var(--terra);
+      color: var(--terra);
+    }
+
+    .cart-count {
+      background: var(--terra);
+      color: var(--cream);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
+
+    .cart-count.visible {
+      display: flex;
+    }
+
+    /* PANEL KOSZYKA */
+    .cart-panel {
+      display: none;
+      background: var(--glass2);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 2px solid var(--border2);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 0 24px 24px;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .cart-panel.open {
+      display: block;
+    }
+
+    .cart-panel h2 {
+      font-family: var(--font-headings);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--terra-dk);
+      margin-bottom: 16px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-headings);
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .cart-item-name {
+      color: var(--text);
+      flex: 1;
+    }
+
+    .cart-item-price {
+      color: var(--terra-dk);
+      font-weight: 700;
+      margin: 0 16px;
+    }
+
+    .cart-item-remove {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text3);
+      font-size: 16px;
+      padding: 0 4px;
+      transition: color 0.2s;
+    }
+
+    .cart-item-remove:hover {
+      color: var(--terra);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      padding-top: 12px;
+    }
+
+    .cart-total-label {
+      font-family: var(--font-headings);
+      font-size: 16px;
+      font-style: italic;
+      color: var(--text2);
+    }
+
+    .cart-total-sum {
+      font-family: var(--font-headings);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--terra-dk);
+    }
+
+    .cart-empty {
+      font-family: var(--font-headings);
+      font-style: italic;
+      color: var(--text3);
+      font-size: 14px;
+      padding: 8px 0;
+    }
+
+    .cart-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-order {
+      background: var(--terra-dk);
+      color: var(--cream);
+      border: none;
+      padding: 11px 22px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 4px 16px rgba(110, 41, 16, 0.22);
+    }
+
+    .btn-order:hover {
+      background: var(--terra);
+    }
+
+    .btn-clear {
+      background: transparent;
+      color: var(--text3);
+      border: 2px solid var(--border2);
+      padding: 11px 18px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-clear:hover {
+      border-color: var(--terra);
+      color: var(--terra);
+    }
+
+    /* ORDER SUCCESS */
+    .order-success {
+      display: none;
+      background: var(--green-lt);
+      border: 2px solid rgba(74, 124, 89, 0.4);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 12px;
+      font-family: var(--font-headings);
+      font-style: italic;
+      color: var(--green-dk);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .order-success.show {
+      display: block;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 72px 0 64px;
+    }
+
+    .hero-inner {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-tag {
+      font-family: var(--font-headings);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--terra);
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-headings);
+      font-size: 46px;
+      font-style: italic;
+      line-height: 1.18;
+      color: var(--terra-dk);
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      font-family: var(--font-headings);
+      font-size: 18px;
+      font-style: italic;
+      color: #000;
+      line-height: 1.75;
+      max-width: 540px;
+      margin-bottom: 28px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-main {
+      background: var(--terra-dk);
+      color: var(--cream);
+      border: none;
+      padding: 13px 26px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.12s, box-shadow 0.22s;
+      box-shadow: 0 4px 18px rgba(110, 41, 16, 0.22);
+    }
+
+    .btn-main:hover {
+      background: var(--terra);
+      box-shadow: 0 6px 24px rgba(110, 41, 16, 0.30);
+    }
+
+    .btn-main:active {
+      transform: scale(0.97);
+    }
+
+    .btn-sec {
+      background: var(--green-dk);
+      color: #EEF5EE;
+      border: none;
+      padding: 13px 26px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.12s, box-shadow 0.22s;
+      box-shadow: 0 4px 18px rgba(30, 64, 48, 0.22);
+    }
+
+    .btn-sec:hover {
+      background: var(--green);
+      box-shadow: 0 6px 24px rgba(30, 64, 48, 0.30);
+    }
+
+    .btn-sec:active {
+      transform: scale(0.97);
+    }
+
+    .hero-medallion {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 2.5px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 8px 40px var(--shadow);
+    }
+
+    .hero-medallion img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* SEKCJE */
+    .section {
+      padding: 44px 0;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: var(--font-headings);
+      font-size: 22px;
+      font-style: italic;
+      color: var(--terra-dk);
+    }
+
+    .section-more {
+      font-size: 11px;
+      color: var(--terra);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .section-more:hover {
+      color: var(--terra-dk);
+    }
+
+    /* KARTY */
+    .glass-card {
+      background: var(--glass2);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.22s, transform 0.22s, box-shadow 0.22s;
+      cursor: pointer;
+      box-shadow: 0 2px 16px var(--shadow);
+    }
+
+    .glass-card:hover {
+      border-color: var(--border2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--shadow);
+    }
+
+    /* BLOG */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .blog-thumb {
+      height: 110px;
+      overflow: hidden;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .blog-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bt1 {
+      background: rgba(212, 133, 90, 0.15);
+    }
+
+    .bt2 {
+      background: rgba(122, 174, 132, 0.15);
+    }
+
+    .bt3 {
+      background: rgba(196, 98, 45, 0.12);
+    }
+
+    .bt4 {
+      background: rgba(74, 124, 89, 0.12);
+    }
+
+    .bt5 {
+      background: rgba(180, 130, 90, 0.13);
+    }
+
+    .bt6 {
+      background: rgba(100, 160, 120, 0.13);
+    }
+
+    .blog-body {
+      padding: 14px 16px 16px;
+    }
+
+    .blog-cat {
+      font-size: 14px;
+      color: var(--terra);
+      font-family: var(--font-body);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .blog-title {
+      font-family: var(--font-headings);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.48;
+      margin-bottom: 8px;
+    }
+
+    .blog-date {
+      font-family: var(--font-headings);
+      font-size: 12px;
+      font-style: italic;
+      color: var(--text3);
+    }
+
+    /* SKLEP */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .shop-thumb {
+      height: 220px;
+      overflow: hidden;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shop-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .st1 {
+      background: rgba(212, 133, 90, 0.13);
+    }
+
+    .st2 {
+      background: rgba(122, 174, 132, 0.13);
+    }
+
+    .st3 {
+      background: rgba(196, 149, 106, 0.13);
+    }
+
+    .st4 {
+      background: rgba(180, 120, 80, 0.13);
+    }
+
+    .shop-body {
+      padding: 12px 14px 14px;
+    }
+
+    .shop-name {
+      font-family: var(--font-headings);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .shop-badge {
+      display: inline-block;
+      font-size: 10px;
+      background: rgba(200, 224, 204, 0.7);
+      color: var(--green-dk);
+      padding: 2px 9px;
+      border-radius: 20px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      margin-bottom: 7px;
+      border: 1px solid rgba(74, 124, 89, 0.25);
+    }
+
+    .shop-badge.last {
+      background: rgba(250, 206, 122, 0.5);
+      color: #633806;
+      border-color: rgba(186, 117, 23, 0.3);
+    }
+
+    .shop-badge.out {
+      background: rgba(240, 149, 123, 0.4);
+      color: #712B13;
+      border-color: rgba(196, 98, 45, 0.3);
+    }
+
+    .shop-price {
+      font-family: var(--font-headings);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--terra-dk);
+      margin-bottom: 10px;
+    }
+
+    .btn-kup {
+      width: 100%;
+      background: var(--terra);
+      color: var(--cream);
+      border: none;
+      padding: 9px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 3px 12px rgba(110, 41, 16, 0.18);
+    }
+
+    .btn-kup:hover {
+      background: var(--terra-dk);
+      box-shadow: 0 5px 18px rgba(110, 41, 16, 0.28);
+    }
+
+    .btn-kup:disabled {
+      background: var(--text3);
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .added-flash {
+      text-align: center;
+      font-family: var(--font-headings);
+      font-style: italic;
+      font-size: 12px;
+      color: var(--green-dk);
+      margin-top: 6px;
+      height: 16px;
+      transition: opacity 0.3s;
+    }
+
+    /* O MNIE */
+    .about-box {
+      background: var(--glass2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 2px solid var(--border2);
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      box-shadow: 0 4px 24px var(--shadow);
+      margin: 44px 0;
+    }
+
+    .about-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(232, 217, 200, 0.7);
+      border: 2.5px solid var(--border2);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .about-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .about-text h3 {
+      font-family: var(--font-headings);
+      font-size: 17px;
+      font-style: italic;
+      color: var(--terra-dk);
+      margin-bottom: 7px;
+    }
+
+    .about-text p {
+      font-family: var(--font-headings);
+      font-size: 14px;
+      font-style: italic;
+      color: var(--text2);
+      line-height: 1.72;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 2px solid var(--border2);
+      padding: 22px 32px;
+    }
+
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-headings);
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--terra-dk);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--terra);
+    }
+
+    .footer-copy {
+      width: 100%;
+      font-family: var(--font-headings);
+      font-size: 12px;
+      font-style: italic;
+      color: var(--text3);
+    }
+
+    /* WIDEO W BLOGU */
+    .blog-video {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .blog-video video {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-video .video-preview {
+      position: relative;
+      height: 360px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .blog-video .video-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .blog-video .video-preview:hover img {
+      transform: scale(1.03);
+    }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(110, 41, 16, 0.82);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: background 0.2s;
+    }
+
+    .play-btn::after {
+      content: '';
+      display: block;
+      border-style: solid;
+      border-color: transparent transparent transparent #FBF7F2;
+      border-width: 9px 0 9px 16px;
+      margin-left: 3px;
+    }
+
+    .blog-video .video-preview:hover .play-btn {
+      background: var(--terra);
+    }
+
+    .video-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(110, 41, 16, 0.82);
+      color: #FBF7F2;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .video-player {
+      display: none;
+    }
+
+    .video-player.active {
+      display: block;
+      background: #000;
+    }
+
+    .video-player video {
+      width: 100%;
+      max-height: 360px;
+      display: block;
+    }
+
+    .video-duration {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .dl-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .dl-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 20px;
+      border-radius: 14px;
+      cursor: default;
+    }
+
+    .dl-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .dl-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .dl-pdf {
+      background: rgba(196, 98, 45, 0.15);
+      color: var(--terra-dk);
+      border: 2px solid rgba(196, 98, 45, 0.3);
+    }
+
+    .dl-img {
+      background: rgba(74, 124, 89, 0.15);
+      color: var(--green-dk);
+      border: 2px solid rgba(74, 124, 89, 0.3);
+    }
+
+    .dl-zip {
+      background: rgba(186, 117, 23, 0.15);
+      color: #633806;
+      border: 2px solid rgba(186, 117, 23, 0.3);
+    }
+
+    .dl-doc {
+      background: rgba(55, 138, 221, 0.12);
+      color: #0C447C;
+      border: 2px solid rgba(55, 138, 221, 0.25);
+    }
+
+    .dl-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .dl-title {
+      font-family: var(--font-headings);
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+
+    .dl-desc {
+      font-family: var(--font-headings);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text2);
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+
+    .dl-meta {
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: var(--text3);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-dl {
+      background: var(--green-dk);
+      color: #EEF5EE;
+      border: none;
+      padding: 9px 18px;
+      flex-shrink: 0;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 7px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 3px 12px rgba(30, 64, 48, 0.2);
+    }
+
+    .btn-dl:hover {
+      background: var(--green);
+      box-shadow: 0 5px 18px rgba(30, 64, 48, 0.28);
+    }
+
+    .section-note {
+      font-family: var(--font-headings);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--green-dk);
+    }
+
+    @media (max-width: 640px) {
+      .dl-card {
+        flex-wrap: wrap;
+      }
+
+      .btn-dl {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    nav {
+      padding: 0 16px;
+    }
+
+    .nav-links {
+      gap: 12px;
+    }
+
+    .wrap {
+      padding: 0 16px;
+    }
+
+    .hero-inner {
+      flex-direction: column-reverse;
+      gap: 28px;
+    }
+
+    .hero-medallion {
+      width: 160px;
+      height: 160px;
+    }
+
+    .hero-title {
+      font-size: 30px;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .shop-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .about-box {
+      flex-direction: column;
+      text-align: center;
+      padding: 22px 16px;
+    }
+
+    footer {
+      padding: 16px;
+    }
+
+    .cart-panel {
+      margin: 0 16px 16px;
+      padding: 18px;
+    }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="blob-wrap">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">AleSztos<em>_pl</em></a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#wzory" onclick="przewijDo('wzory',event)">Wzory</a></li>
+          <li><a href="#pobierz" onclick="przewijDo('pobierz',event)">Pobierz</a></li>
+          <li><a href="#sklep" onclick="przewijDo('sklep',event)">Sklep</a></li>
+          <li><a href="#rosliny" onclick="przewijDo('rosliny',event)">Rośliny</a></li>
+          <li><a href="#omnie" onclick="przewijDo('omnie',event)">O mnie</a></li>
+        </ul>
+        <button class="cart-btn" onclick="toggleCart()">
+          &#128722; Koszyk
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PANEL KOSZYKA -->
+  <div class="cart-panel" id="cartPanel">
+    <h2>Twój koszyk</h2>
+    <div id="cartItems"></div>
+    <div class="cart-total" id="cartTotal" style="display:none">
+      <span class="cart-total-label">Razem do zapłaty:</span>
+      <span class="cart-total-sum" id="cartSum">0 zł</span>
+    </div>
+    <div class="cart-actions" id="cartActions" style="display:none">
+      <button class="btn-order" onclick="placeOrder()">Zamów — wyślij e-mail</button>
+      <button class="btn-clear" onclick="clearCart()">Wyczyść koszyk</button>
+    </div>
+    <div class="order-success" id="orderSuccess">
+      Dziękujemy za zamówienie! Za chwilę otworzy się Twój program pocztowy z gotową wiadomością.<br>
+      Wyślij e-mail aby potwierdzić zamówienie. Odezwiemy się wkrótce!
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-tag">rośliny · szydełko · druty · rośliny</div>
+          <h1 class="hero-title">Pasja w każdym oczku, radość w każdym projekcie,<br>…w otoczeniu roślin i zielonej
+            inspiracji</h1>
+          <p class="hero-sub">
+            na szydełku i drutach, opinie o przędzach i akcesoriach
+            — a do tego ręcznie szytematy do przesadzania roślin doniczkowych.
+          </p>
+          <div class="hero-btns">
+            <button class="btn-main" onclick="przewijDo('sklep', event)">Przejdź do sklepu</button>
+            <button class="btn-sec" onclick="przewijDo('pobierz', event)">Zobacz wzory</button>
+          </div>
+        </div>
+        <div class="hero-medallion">
+          <!-- PODMIEŃ: zdjęcie profilowe, 400x400px -->
+          <img src="images/logo.png" alt="AleSztos_pl" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       === BLOG — DODAJ NOWE WPISY TUTAJ ===
+
+       Aby dodać nowy wpis, skopiuj blok <div class="blog-entry">
+       poniżej i wklej go NA POCZĄTKU listy (przed pierwszym wpisem).
+       Na stronie głównej wyświetlają się zawsze 4 najnowsze wpisy.
+
+       SZABLON NOWEGO WPISU (skopiuj i wypełnij):
+
+       <div class="blog-entry" data-cat="Szydełko">
+         <div class="blog-thumb bt1">
+           <img src="images/TWOJE-ZDJECIE.jpg" alt="opis" onerror="this.style.display='none'">
+         </div>
+         <div class="blog-body">
+           <div class="blog-cat">Szydełko</div>
+           <div class="blog-title">Tytuł Twojego wpisu</div>
+           <div class="blog-date">1 stycznia 2026</div>
+         </div>
+       </div>
+
+       Klasy kolorów miniatur: bt1 (pomarańcz), bt2 (zieleń),
+       bt3 (terakota), bt4 (ciemna zieleń), bt5 (brąz), bt6 (mięta)
+       ============================================================ -->
+
+    <section class="section" id="wzory">
+      <div class="section-header">
+        <h2 class="section-title">Ostatnio na blogu:</h2>
+        <a class="section-more" href="#" id="blogToggle" onclick="toggleAllPosts(event)">Wszystkie wpisy →</a>
+      </div>
+      <div class="blog-grid" id="blogGrid">
+
+        <!-- ============================================================
+           === WPIS WIDEO — SZABLON ===
+
+           Aby dodać wpis z filmem MP4:
+           1. Wrzuć plik MP4 do folderu videos/ obok tego pliku HTML
+           2. Wrzuć miniaturę JPG do folderu images/ (rozmiar 400x300px)
+              (możesz wyeksportować klatkę z filmu lub zrobić własne zdjęcie)
+           3. Skopiuj poniższy szablon i wypełnij:
+              - poster="images/MINIATURA.jpg"     ← zdjęcie podglądu
+              - src="videos/TWOJ-FILM.mp4"        ← ścieżka do pliku MP4
+              - data-duration="5:32"              ← czas trwania (opcjonalnie)
+              - tytuł, kategorię, datę
+
+           WSKAZÓWKI CO DO PLIKÓW MP4:
+           - Najlepszy format: MP4 z kodekiem H.264 — działa w każdej przeglądarce
+           - Rozdzielczość: 1280x720 (HD) lub 1920x1080 (Full HD)
+           - Rozmiar: staraj się aby jeden film ważył max 100-200 MB
+             (większe pliki długo się ładują)
+           - W programie do edycji wideo eksportuj jako "H.264 MP4"
+           - Darmowe narzędzie do kompresji: handbrake.fr
+
+           SZABLON WPISU WIDEO (skopiuj i wypełnij):
+
+           <div class="blog-entry glass-card" data-cat="Szydełko">
+             <div class="blog-video">
+               <div class="video-preview" onclick="playVideo(this)">
+                 <img src="images/MINIATURA.jpg" alt="opis">
+                 <div class="video-badge">WIDEO</div>
+                 <div class="play-btn"></div>
+                 <div class="video-duration">5:32</div>
+               </div>
+               <div class="video-player">
+                 <video controls preload="none" poster="images/MINIATURA.jpg">
+                   <source src="videos/TWOJ-FILM.mp4" type="video/mp4">
+                 </video>
+               </div>
+             </div>
+             <div class="blog-body">
+               <div class="blog-cat">Szydełko</div>
+               <div class="blog-title">Tytuł Twojego filmu</div>
+               <div class="blog-date">1 stycznia 2026</div>
+             </div>
+           </div>
+           ============================================================ -->
+
+        <!-- PRZYKŁAD: wpis wideo 1 -->
+        <div class="blog-entry glass-card" data-cat="Szydełko">
+          <div class="blog-video">
+            <div class="video-preview" onclick="playVideo(this)">
+              <!-- PODMIEŃ: miniatura 400x300px -->
+              <img src="images/video-granny-thumb.jpg" alt="Granny square tutorial"
+                onerror="this.style.background='rgba(212,133,90,0.15)'">
+              <div class="video-badge">WIDEO</div>
+              <div class="play-btn"></div>
+              <div class="video-duration">8:14</div>
+            </div>
+            <div class="video-player">
+              <!-- PODMIEŃ: ścieżka do pliku MP4 -->
+              <video controls preload="none" poster="images/video-granny-thumb.jpg">
+                <source src="videos/tutorial-granny-square.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje wideo.
+              </video>
+            </div>
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Szydełko</div>
+            <div class="blog-title">Jak zrobić granny square — tutorial wideo krok po kroku</div>
+            <div class="blog-date">18 kwietnia 2025</div>
+          </div>
+        </div>
+
+        <!-- PRZYKŁAD: wpis wideo 2 -->
+        <div class="blog-entry glass-card" data-cat="Rośliny">
+          <div class="blog-video">
+            <div class="video-preview" onclick="playVideo(this)">
+              <!-- PODMIEŃ: miniatura 400x300px -->
+              <img src="images/video-przesadzanie-thumb.jpg" alt="Przesadzanie monstery"
+                onerror="this.style.background='rgba(122,174,132,0.15)'">
+              <div class="video-badge">WIDEO</div>
+              <div class="play-btn"></div>
+              <div class="video-duration">1:37</div>
+            </div>
+            <div class="video-player">
+              <!-- PODMIEŃ: ścieżka do pliku MP4 -->
+              <video controls preload="none" poster="images/video-przesadzanie-thumb.jpg">
+                <source src="videos/Przesadzanie.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje wideo.
+              </video>
+            </div>
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Rośliny</div>
+            <div class="blog-title">Przesadzanie monstery — jak użyć maty i nie nabrudzić</div>
+            <div class="blog-date">20 kwietnia 2026</div>
+          </div>
+        </div>
+
+        <!-- WPIS 1 — artykuł (bez wideo) -->
+        <div class="blog-entry glass-card" data-cat="Szydełko">
+          <div class="blog-thumb bt1">
+            <!-- PODMIEŃ: 400x300px -->
+            <img src="images/blog-kocyk-granny.jpg" alt="Kocyk granny square" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Szydełko</div>
+            <div class="blog-title">Kocyk dla niemowlaka — wzór granny square krok po kroku</div>
+            <div class="blog-date">12 kwietnia 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS 2 -->
+        <div class="blog-entry glass-card" data-cat="Rośliny">
+          <div class="blog-thumb bt2">
+            <!-- PODMIEŃ: 400x300px -->
+            <img src="images/blog-monstera.jpg" alt="Monstera deliciosa" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Rośliny</div>
+            <div class="blog-title">Monstera deliciosa — jak i kiedy przesadzać?</div>
+            <div class="blog-date">3 kwietnia 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS 3 -->
+        <div class="blog-entry glass-card" data-cat="Druty">
+          <div class="blog-thumb bt3">
+            <!-- PODMIEŃ: 400x300px -->
+            <img src="images/blog-przedza-merino.jpg" alt="Test przędzy merino" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Druty</div>
+            <div class="blog-title">Test przędzy: merino vs bawełna — co wybrać na lato?</div>
+            <div class="blog-date">28 marca 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS 4 -->
+        <div class="blog-entry glass-card" data-cat="Szydełko">
+          <div class="blog-thumb bt4">
+            <!-- PODMIEŃ: 400x300px -->
+            <img src="images/blog-oslonka.jpg" alt="Osłonka na doniczkę" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Szydełko</div>
+            <div class="blog-title">Osłonka na doniczkę — wzór w 30 minut dla początkujących</div>
+            <div class="blog-date">20 marca 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS 5 — ukryty domyślnie, pojawia się po kliknięciu "Wszystkie wpisy" -->
+        <div class="blog-entry glass-card blog-extra" data-cat="Rośliny" style="display:none">
+          <div class="blog-thumb bt5">
+            <!-- PODMIEŃ: 400x300px -->
+            <img src="images/blog-przyklad5.jpg" alt="Przykładowy wpis 5" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Rośliny</div>
+            <div class="blog-title">Fikus — jak dbać żeby nie gubił liści?</div>
+            <div class="blog-date">10 marca 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS 6 — ukryty domyślnie -->
+        <div class="blog-entry glass-card blog-extra" data-cat="Druty" style="display:none">
+          <div class="blog-thumb bt6">
+            <!-- PODMIEŃ: 400x300px -->
+            <img src="images/blog-przyklad6.jpg" alt="Przykładowy wpis 6" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Druty</div>
+            <div class="blog-title">Czapka beanie na drutach — wzór dla początkujących</div>
+            <div class="blog-date">2 marca 2025</div>
+          </div>
+        </div>
+
+        <!-- ► TUTAJ DODAWAJ KOLEJNE WPISY ◄ -->
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+       === SKLEP — DODAJ PRODUKTY TUTAJ ===
+
+       Aby dodać nowy produkt, skopiuj blok <div class="glass-card">
+       i wklej go w gridzie poniżej.
+
+       Dostępność (zmień klasę shop-badge):
+         class="shop-badge"       → "dostępna"  (zielony)
+         class="shop-badge last"  → własny tekst np. "ostatnia sztuka" (żółty)
+         class="shop-badge out"   → "niedostępna" (czerwony) + dodaj disabled do btn-kup
+
+       SZABLON PRODUKTU:
+
+       <div class="glass-card">
+         <div class="shop-thumb st1">
+           <img src="images/ZDJECIE-PRODUKTU.jpg" alt="Nazwa" onerror="this.style.display='none'">
+         </div>
+         <div class="shop-body">
+           <div class="shop-name">Nazwa produktu</div>
+           <div class="shop-badge">dostępna</div>
+           <div class="shop-price">XX zł</div>
+           <button class="btn-kup" onclick="addToCart('Nazwa produktu', XX)">Do koszyka</button>
+           <div class="added-flash" id="flash-UNIKALNY_ID"></div>
+         </div>
+       </div>
+       ============================================================ -->
+
+    <section class="section" id="sklep">
+      <div class="section-header">
+        <h2 class="section-title">Sklep — maty do przesadzania</h2>
+        <a class="section-more" href="#">Wszystkie produkty →</a>
+      </div>
+      <div class="shop-grid">
+
+        <div class="glass-card">
+          <div class="shop-thumb st1">
+            <!-- PODMIEŃ: 400x400px -->
+            <img src="images/mata-s.png" alt="Mata bawełniana S" onerror="this.style.display='none'">
+          </div>
+          <div class="shop-body">
+            <div class="shop-name">Mata wodoodporna S (65×45 cm)<br> po złożeniu (50x30 cm)</div>
+            <div class="shop-badge">dostępna</div>
+            <div class="shop-price">29 PLN</div>
+            <button class="btn-kup" onclick="addToCart('Mata wodoodporna S (30×30 cm)', 29, 'flash-1')">Do
+              koszyka</button>
+            <div class="added-flash" id="flash-1"></div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="shop-thumb st2">
+            <!-- PODMIEŃ: 400x400px -->
+            <img src="images/mata-lniana-m.jpg" alt="Mata wodoodporna M" onerror="this.style.display='none'">
+          </div>
+          <div class="shop-body">
+            <div class="shop-name">Mata wodoodporna M (75×55 cm)<br>po złożeniu (60x40 cm)</div>
+            <div class="shop-badge">dostępna</div>
+            <div class="shop-price">49 PLN</div>
+            <button class="btn-kup" onclick="addToCart('Mata lniana M (50×50 cm)', 49, 'flash-2')">Do koszyka</button>
+            <div class="added-flash" id="flash-2"></div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="shop-thumb st3">
+            <!-- PODMIEŃ: 400x400px -->
+            <img src="images/mata-dwustronna-l.jpg" alt="Mata dwustronna L" onerror="this.style.display='none'">
+          </div>
+          <div class="shop-body">
+            <div class="shop-name">Mata wodoodporna L (95×75 cm)<br>po złożeniu (80x60 cm)</div>
+            <div class="shop-badge last">ostatnia sztuka</div>
+            <div class="shop-price">79 PLN</div>
+            <button class="btn-kup" onclick="addToCart('Mata wodoodporna L (70×70 cm)', 79, 'flash-3')">Do
+              koszyka</button>
+            <div class="added-flash" id="flash-3"></div>
+          </div>
+        </div>
+
+        <!-- ► TUTAJ DODAWAJ KOLEJNE PRODUKTY ◄ -->
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+       === PLIKI DO POBRANIA — DODAJ PLIKI TUTAJ ===
+
+       Aby dodać plik do pobrania:
+       1. Wrzuć plik (PDF, PNG, ZIP itp.) do folderu downloads/
+          obok tego pliku HTML.
+       2. Skopiuj poniższy szablon i wypełnij:
+            - href="downloads/NAZWA-PLIKU.pdf"  ← ścieżka do pliku
+            - data-size="1,2 MB"                ← rozmiar pliku
+            - ikonę (PDF / ZIP / PNG — patrz komentarz przy ikonie)
+            - tytuł i opis
+
+       SZABLON:
+
+       <div class="dl-card glass-card">
+         <div class="dl-icon dl-pdf">PDF</div>
+         <div class="dl-info">
+           <div class="dl-title">Tytuł pliku</div>
+           <div class="dl-desc">Krótki opis czego dotyczy plik</div>
+           <div class="dl-meta">PDF · 1,2 MB · bezpłatny</div>
+         </div>
+         <a href="downloads/NAZWA-PLIKU.pdf" download class="btn-dl">Pobierz</a>
+       </div>
+
+       Klasy ikon:
+         dl-pdf  → czerwony — dla plików PDF
+         dl-img  → zielony  — dla zdjęć PNG/JPG
+         dl-zip  → żółty    — dla archiwów ZIP
+         dl-doc  → niebieski — dla dokumentów DOC/DOCX
+
+       Atrybut "download" powoduje że plik się pobiera zamiast otwierać.
+       Możesz też podać własną nazwę: download="moj-wzor.pdf"
+       ============================================================ -->
+
+    <section class="section" id="pobierz">
+      <div class="section-header">
+        <h2 class="section-title">Wzory do pobrania</h2>
+        <span class="section-note">bezpłatnie</span>
+      </div>
+      <div class="dl-grid">
+
+        <div class="dl-card glass-card">
+          <div class="dl-icon dl-pdf">PDF</div>
+          <div class="dl-info">
+            <div class="dl-title">Wzór granny square — kocyk dla niemowlaka</div>
+            <div class="dl-desc">Schemat z opisem krok po kroku, zdjęcia etapów, wykaz materiałów</div>
+            <div class="dl-meta">PDF · 2,4 MB · bezpłatny</div>
+          </div>
+          <!-- PODMIEŃ: downloads/wzor-granny-square.pdf -->
+          <a href="downloads/wzor-granny-square.pdf" download class="btn-dl">Pobierz</a>
+        </div>
+
+        <div class="dl-card glass-card">
+          <div class="dl-icon dl-pdf">PDF</div>
+          <div class="dl-info">
+            <div class="dl-title">Wzór osłonki na doniczkę — szydełko</div>
+            <div class="dl-desc">Prosty wzór dla początkujących, gotowy w 30 minut</div>
+            <div class="dl-meta">PDF · 1,1 MB · bezpłatny</div>
+          </div>
+          <!-- PODMIEŃ: downloads/wzor-oslonka.pdf -->
+          <a href="downloads/wzor-oslonka.pdf" download class="btn-dl">Pobierz</a>
+        </div>
+
+        <div class="dl-card glass-card">
+          <div class="dl-icon dl-zip">ZIP</div>
+          <div class="dl-info">
+            <div class="dl-title">Pakiet 3 wzorów — seria wiosenna</div>
+            <div class="dl-desc">Trzy wzory w jednym archiwum: kocyk, osłonka, torba</div>
+            <div class="dl-meta">ZIP · 5,8 MB · bezpłatny</div>
+          </div>
+          <!-- PODMIEŃ: downloads/pakiet-wiosna.zip -->
+          <a href="downloads/pakiet-wiosna.zip" download class="btn-dl">Pobierz</a>
+        </div>
+
+        <!-- ► TUTAJ DODAWAJ KOLEJNE PLIKI ◄ -->
+
+      </div>
+    </section>
+    <div class="section-header">
+      <h2 class="section-title">Rośliny doniczkowe</h2>
+      <a class="section-more" href="#">Wszystkie wpisy →</a>
+    </div>
+    <div class="blog-grid">
+
+      <div class="blog-entry glass-card" data-cat="Rośliny">
+        <div class="blog-thumb bt2">
+          <img src="images/blog-monstera.jpg" alt="Monstera" onerror="this.style.display='none'">
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Rośliny</div>
+          <div class="blog-title">Monstera deliciosa — jak i kiedy przesadzać?</div>
+          <div class="blog-date">3 kwietnia 2025</div>
+        </div>
+      </div>
+
+      <div class="blog-entry glass-card" data-cat="Rośliny">
+        <div class="blog-thumb bt5">
+          <img src="images/blog-przyklad5.jpg" alt="Fikus" onerror="this.style.display='none'">
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Rośliny</div>
+          <div class="blog-title">Fikus — jak dbać żeby nie gubił liści?</div>
+          <div class="blog-date">10 marca 2025</div>
+        </div>
+      </div>
+
+      <!-- ► TUTAJ DODAWAJ WPISY O ROŚLINACH ◄ -->
+
+    </div>
+    </section>
+
+    <div class="about-box" id="omnie">
+      <div class="about-avatar">
+        <!-- PODMIEŃ: zdjęcie autorki, 200x200px -->
+        <img src="images/autorka.jpg" alt="Autorka AleSztos_pl" onerror="this.style.display='none'">
+      </div>
+      <div class="about-text">
+        <h3>Cześć, jestem autorką AleSztos_pl</h3>
+        <p>Robię na szydełku i drutach od ponad 10 lat. Kocham rośliny doniczkowe i szyję maty, które ułatwiają ich
+          pielęgnację. Tu dzielę się wzorami, opiniami i gotowymi produktami z duszą.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">AleSztos_pl</div>
+      <div class="footer-links">
+        <!--
+      ================================================
+      LINKI W STOPCE — UZUPEŁNIJ SWOJE ADRESY TUTAJ:
+
+      Instagram:
+        href="https://www.instagram.com/TWOJA_NAZWA/"
+        np. href="https://www.instagram.com/alesztos_pl/"
+
+      Pinterest:
+        href="https://www.pinterest.com/TWOJA_NAZWA/"
+        np. href="https://www.pinterest.com/alesztos_pl/"
+
+      Kontakt — dwie opcje do wyboru:
+        a) otwiera program pocztowy z gotowym mailem:
+           href="mailto:twoj-email@gmail.com"
+        b) link do podstrony z formularzem kontaktowym:
+           href="kontakt.html"
+
+      Regulamin:
+        href="regulamin.html"  ← utwórz plik regulamin.html
+                                  obok tego pliku HTML
+        lub href="downloads/regulamin.pdf" jeśli masz PDF
+
+      Zostawiaj target="_blank" przy Instagramie i Pinterest
+      — otworzy się w nowej karcie przeglądarki.
+      ================================================
+      -->
+        <a href="https://www.instagram.com/alesztos_pl/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:twoj-email@gmail.com">Kontakt</a>
+        <a href="regulamin.html">Regulamin</a>
+      </div>
+      <div class="footer-copy">© 2025 AleSztos_pl — z miłością z Polski</div>
+    </div>
+  </footer>
+
+  <script>
+    /* Odtwarzanie wideo w blogu */
+    function playVideo(previewEl) {
+      var card = previewEl.closest('.blog-video');
+      var player = card.querySelector('.video-player');
+      var video = player.querySelector('video');
+      previewEl.style.display = 'none';
+      player.classList.add('active');
+      video.play();
+    }
+
+    /* ================================================================
+       ================================================================ */
+    var EMAIL_ZAMOWIEN = 'twoj-email@gmail.com';
+
+    /* Nawigacja — płynne przewijanie */
+    function przewijDo(id, e) {
+      if (e) e.preventDefault();
+      var el = document.getElementById(id);
+      if (el) {
+        var top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    } // ← wpisz swój adres e-mail
+
+    /* ================================================================
+       KOSZYK — logika (nie musisz tu nic zmieniać)
+       ================================================================ */
+    var cart = [];
+
+    function addToCart(name, price, flashId) {
+      var existing = cart.find(function (i) { return i.name === name; });
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name: name, price: price, qty: 1 });
+      }
+      updateCartUI();
+      if (flashId) {
+        var el = document.getElementById(flashId);
+        if (el) {
+          el.textContent = 'Dodano do koszyka!';
+          el.style.opacity = '1';
+          setTimeout(function () { el.style.opacity = '0'; }, 1800);
+        }
+      }
+      document.getElementById('cartPanel').classList.add('open');
+    }
+
+    function removeFromCart(idx) {
+      cart.splice(idx, 1);
+      updateCartUI();
+    }
+
+    function clearCart() {
+      cart = [];
+      updateCartUI();
+      document.getElementById('orderSuccess').classList.remove('show');
+    }
+
+    function toggleCart() {
+      document.getElementById('cartPanel').classList.toggle('open');
+    }
+
+    function updateCartUI() {
+      var total = cart.reduce(function (s, i) { return s + i.price * i.qty; }, 0);
+      var count = cart.reduce(function (s, i) { return s + i.qty; }, 0);
+      var countEl = document.getElementById('cartCount');
+      countEl.textContent = count;
+      countEl.classList.toggle('visible', count > 0);
+
+      var itemsEl = document.getElementById('cartItems');
+      if (cart.length === 0) {
+        itemsEl.innerHTML = '<div class="cart-empty">Koszyk jest pusty.</div>';
+        document.getElementById('cartTotal').style.display = 'none';
+        document.getElementById('cartActions').style.display = 'none';
+      } else {
+        itemsEl.innerHTML = cart.map(function (item, idx) {
+          return '<div class="cart-item">' +
+            '<span class="cart-item-name">' + item.name + (item.qty > 1 ? ' ×' + item.qty : '') + '</span>' +
+            '<span class="cart-item-price">' + (item.price * item.qty) + ' zł</span>' +
+            '<button class="cart-item-remove" onclick="removeFromCart(' + idx + ')" title="Usuń">✕</button>' +
+            '</div>';
+        }).join('');
+        document.getElementById('cartTotal').style.display = 'flex';
+        document.getElementById('cartActions').style.display = 'flex';
+        document.getElementById('cartSum').textContent = total + ' zł';
+      }
+    }
+
+    function placeOrder() {
+      if (cart.length === 0) return;
+      var lines = cart.map(function (i) {
+        return '- ' + i.name + (i.qty > 1 ? ' ×' + i.qty : '') + ' — ' + (i.price * i.qty) + ' zł';
+      });
+      var total = cart.reduce(function (s, i) { return s + i.price * i.qty; }, 0);
+      var body = 'Dzień dobry,%0D%0A%0D%0AChciałabym złożyć zamówienie:%0D%0A%0D%0A' +
+        lines.join('%0D%0A') + '%0D%0A%0D%0ARazem: ' + total + ' zł%0D%0A%0D%0A' +
+        'Proszę o potwierdzenie zamówienia i informację o płatności.%0D%0A%0D%0APozdrawiam';
+      window.location.href = 'mailto:' + EMAIL_ZAMOWIEN +
+        '?subject=Zamówienie%20AleSztos_pl&body=' + body;
+      document.getElementById('orderSuccess').classList.add('show');
+    }
+
+    /* BLOG — pokaż/ukryj starsze wpisy */
+    var allPostsVisible = false;
+    function toggleAllPosts(e) {
+      e.preventDefault();
+      allPostsVisible = !allPostsVisible;
+      var extras = document.querySelectorAll('.blog-extra');
+      extras.forEach(function (el) {
+        el.style.display = allPostsVisible ? 'block' : 'none';
+      });
+      document.getElementById('blogToggle').textContent =
+        allPostsVisible ? '← Mniej wpisów' : 'Wszystkie wpisy →';
+    }
+
+    updateCartUI();
+  </script>
+</body>
+
+</html>
