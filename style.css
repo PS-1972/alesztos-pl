@@ -100,7 +100,7 @@ nav {
 }
 .logo {
   font-family: var(--font-headings);
-  font-size: 24px; font-weight: 700; font-style: italic;
+  font-size: 32px; font-weight: 700; font-style: italic;
   color: var(--terra-dk); text-decoration: none;
 }
 .logo em { color: var(--terra-dk); font-style: italic; }
@@ -262,7 +262,7 @@ nav {
 .st4 { background: rgba(180,120,80,0.13); }
 .shop-body { padding: 12px 14px 14px; }
 .shop-name {
-  font-family: var(--font-headings); font-size: 18px; font-style: italic;
+  font-family: var(--font-headings); font-size: 16px; font-style: italic;
   color: var(--text); line-height: 1.4; margin-bottom: 6px;
 }
 .shop-badge {
