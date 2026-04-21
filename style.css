@@ -535,14 +535,14 @@ footer {
 /* ================================================================
    RESPONSIVE — telefony i małe tablety (do 768px)
    ================================================================ */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   /* Nawigacja — uproszczona na telefon */
   nav { padding: 0 16px; }
   .nav-inner { height: 60px; }  /* ← wysokość paska nawigacji na telefon */
 
   /* Ukryj desktopowe linki i koszyk, pokaż hamburger */
   .nav-right { display: none; }
-  .hamburger { display: flex; }
+  .hamburger { display: flex !important; }
 
   /* Wrapper */
   .wrap { padding: 0 16px; }
