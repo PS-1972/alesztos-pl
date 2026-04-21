@@ -55,9 +55,24 @@
         <button class="cart-btn" onclick="window.location.href='sklep.html'">
           &#128722; Sklep
         </button>
+        <!-- Hamburger — widoczny tylko na telefonie -->
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
-    </div>
   </nav>
+
+  <!-- Mobilne menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="sklep.html">Sklep</a></li>
+      <li><a href="rosliny.html">Rośliny</a></li>
+      <li><a href="index.html#pobierz">Pobierz</a></li>
+      <li><a href="index.html#omnie">O mnie</a></li>
+    </ul>
+    <button class="mobile-cart-btn" onclick="window.location.href='sklep.html'">&#128722; Sklep</button>
+  </div>
 
   <div class="wrap">
 
@@ -153,9 +168,9 @@
             <img src="images/mata-s.png" alt="Mata S" onerror="this.style.display='none'">
           </div>
           <div class="shop-body">
-            <div class="shop-name">Mata wodoodporna S</div>
+            <div class="shop-name">Maty wodoodporna</div>
             <div class="shop-badge">dostępna</div>
-            <div class="shop-price">40 PLN</div>
+            <div class="shop-price">Od 40 PLN</div>
             <button class="btn-kup" onclick="event.stopPropagation();window.location.href='sklep.html'">Zobacz w
               sklepie</button>
           </div>
@@ -166,9 +181,9 @@
             <img src="images/mata-lniana-m.jpg" alt="Mata M" onerror="this.style.display='none'">
           </div>
           <div class="shop-body">
-            <div class="shop-name">Mata wodoodporna M</div>
+            <div class="shop-name">Osłonka na doniczkę</div>
             <div class="shop-badge">dostępna</div>
-            <div class="shop-price">50 PLN</div>
+            <div class="shop-price">Od 20 PLN</div>
             <button class="btn-kup" onclick="event.stopPropagation();window.location.href='sklep.html'">Zobacz w
               sklepie</button>
           </div>
@@ -179,9 +194,9 @@
             <img src="images/mata-dwustronna-l.jpg" alt="Mata L" onerror="this.style.display='none'">
           </div>
           <div class="shop-body">
-            <div class="shop-name">Mata wodoodporna L</div>
+            <div class="shop-name">Torby</div>
             <div class="shop-badge last">ostatnia sztuka</div>
-            <div class="shop-price">65 PLN</div>
+            <div class="shop-price">Od 75 PLN</div>
             <button class="btn-kup" onclick="event.stopPropagation();window.location.href='sklep.html'">Zobacz w
               sklepie</button>
           </div>
@@ -271,6 +286,21 @@
         window.scrollTo({ top: top, behavior: 'smooth' });
       }
     }
+  </script>
+
+  <script>
+    function toggleMenu() {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobileMenu');
+      btn.classList.toggle('open');
+      menu.classList.toggle('open');
+    }
+    document.querySelectorAll('.mobile-menu a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        document.getElementById('hamburger').classList.remove('open');
+        document.getElementById('mobileMenu').classList.remove('open');
+      });
+    });
   </script>
 </body>
 

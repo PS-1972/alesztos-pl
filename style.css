@@ -95,12 +95,12 @@ nav {
   padding: 0 32px;
 }
 .nav-inner {
-  max-width: 660px; margin: 0 auto; height: 70px;
+  max-width: 860px; margin: 0 auto; height: 70px;
   display: flex; align-items: center; justify-content: space-between;
 }
 .logo {
   font-family: var(--font-headings);
-  font-size: 21px; font-weight: 700; font-style: italic;
+  font-size: 32px; font-weight: 700; font-style: italic;
   color: var(--terra-dk); text-decoration: none;
 }
 .logo em { color: var(--terra-dk); font-style: italic; }
@@ -262,7 +262,7 @@ nav {
 .st4 { background: rgba(180,120,80,0.13); }
 .shop-body { padding: 12px 14px 14px; }
 .shop-name {
-  font-family: var(--font-headings); font-size: 16px; font-style: italic;
+  font-family: var(--font-headings); font-size: 18px; font-style: italic;
   color: var(--text); line-height: 1.4; margin-bottom: 6px;
 }
 .shop-badge {
@@ -445,19 +445,224 @@ footer {
 .footer-links a:hover { color: var(--terra); }
 .footer-copy { width: 100%; font-family: var(--font-headings); font-size: 12px; font-style: italic; color: var(--text3); }
 
-/* RESPONSIVE */
-@media (max-width: 640px) {
+/* ================================================================
+   HAMBURGER — przycisk menu na telefon
+   Widoczny tylko na małych ekranach (poniżej 768px)
+   ================================================================ */
+.hamburger {
+  display: none;           /* ukryty na desktop */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px;
+  z-index: 300;
+}
+/* Każda kreska hamburgera */
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--terra-dk);  /* ← kolor kresek hamburgera */
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+/* Animacja × gdy menu otwarte */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ================================================================
+   MOBILNE MENU — wysuwane od góry
+   ================================================================ */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(242,218,171,0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 250;
+  padding: 80px 24px 32px;
+  border-bottom: 2px solid rgba(235,131,12,0.35);
+  box-shadow: 0 8px 32px rgba(100,60,30,0.15);
+}
+.mobile-menu.open { display: block; }
+
+/* Lista linków w mobilnym menu */
+.mobile-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+.mobile-menu ul li a {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 15px;         /* ← rozmiar linków w menu mobilnym */
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terra-dk);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(180,140,110,0.2);
+  transition: color 0.2s;
+}
+.mobile-menu ul li a:hover,
+.mobile-menu ul li a.active { color: var(--terra); }
+
+/* Przycisk koszyka w mobilnym menu */
+.mobile-menu .mobile-cart-btn {
+  width: 100%;
+  background: var(--terra-dk);
+  color: var(--cream);
+  border: none;
+  padding: 13px;
+  font-family: var(--font-body);
+  font-size: 13px;         /* ← rozmiar tekstu przycisku koszyka w menu */
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.mobile-menu .mobile-cart-btn:hover { background: var(--terra); }
+
+/* ================================================================
+   RESPONSIVE — telefony i małe tablety (do 768px)
+   ================================================================ */
+@media (max-width: 768px) {
+  /* Nawigacja — uproszczona na telefon */
   nav { padding: 0 16px; }
-  .nav-links { gap: 12px; }
+  .nav-inner { height: 60px; }  /* ← wysokość paska nawigacji na telefon */
+
+  /* Ukryj desktopowe linki i koszyk, pokaż hamburger */
+  .nav-right { display: none; }
+  .hamburger { display: flex; }
+
+  /* Wrapper */
   .wrap { padding: 0 16px; }
-  .hero-inner { flex-direction: column-reverse; gap: 28px; }
-  .hero-medallion { width: 160px; height: 160px; }
-  .hero-title { font-size: 30px; }
+
+  /* Hero — logo na górze, tekst poniżej */
+  .hero { padding: 40px 0 36px; }  /* ← odstępy hero na telefon */
+  .hero-inner { flex-direction: column-reverse; gap: 24px; }
+  .hero-medallion { width: 160px; height: 160px; }  /* ← rozmiar okrągłego logo na telefon */
+  .hero-title { font-size: 28px; }    /* ← rozmiar głównego tytułu na telefon */
+  .hero-tag   { font-size: 15px; }    /* ← rozmiar podtytułu tagline na telefon */
+  .hero-sub   { font-size: 15px; }    /* ← rozmiar opisu hero na telefon */
+
+  /* Blog — jedna kolumna na telefon */
   .blog-grid { grid-template-columns: 1fr; }
+
+  /* Sklep — dwie kolumny na telefon */
   .shop-grid { grid-template-columns: 1fr 1fr; }
+
+  /* O mnie — pionowo */
   .about-box { flex-direction: column; text-align: center; padding: 22px 16px; }
+
+  /* Stopka */
   footer { padding: 16px; }
+
+  /* Koszyk panel */
   .cart-panel { margin: 0 16px 16px; padding: 18px; }
+
+  /* Pliki do pobrania */
   .dl-card { flex-wrap: wrap; }
   .btn-dl { width: 100%; text-align: center; }
+
+  /* Nagłówek podstrony */
+  .page-header h1 { font-size: 26px; }  /* ← rozmiar tytułu podstrony na telefon */
+  .page-header p  { font-size: 14px; }  /* ← rozmiar opisu podstrony na telefon */
 }
+
+/* ================================================================
+   RESPONSIVE — bardzo małe telefony (do 400px)
+   ================================================================ */
+@media (max-width: 400px) {
+  .shop-grid { grid-template-columns: 1fr; }  /* jedna kolumna na mały telefon */
+  .hero-title { font-size: 24px; }
+  .logo { font-size: 24px; }  /* ← rozmiar logo AleSztos_pl na małym telefonie */
+}
+
+/* ================================================================
+   WYBÓR KOLORU PRODUKTU — kropki
+   ================================================================ */
+
+/* Etykieta "Wybierz kolor:" */
+.color-label {
+  font-family: var(--font-headings);
+  font-size: 12px;          /* ← rozmiar napisu "Wybierz kolor" */
+  font-style: italic;
+  color: var(--text2);
+  margin-bottom: 8px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Rząd kropek kolorów */
+.color-picker {
+  display: flex;
+  gap: 8px;                 /* ← odstęp między kropkami */
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+/* Pojedyncza kropka — bazowy styl */
+.color-dot {
+  width: 28px;              /* ← szerokość kropki — zmień obydwie wartości razem */
+  height: 28px;             /* ← wysokość kropki */
+  border-radius: 50%;
+  border: 2.5px solid rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+  position: relative;
+  flex-shrink: 0;
+}
+.color-dot:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+/* Zaznaczona kropka — biała obwódka + cień */
+.color-dot.selected {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px var(--terra-dk), 0 3px 10px rgba(0,0,0,0.3);
+  transform: scale(1.1);
+}
+
+/* ================================================================
+   KOLORY KROPEK — ZMIEŃ TUTAJ
+   Możesz dodawać nowe kolory lub zmieniać istniejące.
+   Dodaj też odpowiedni blok w HTML sklepu (sklep.html).
+   Format: background: #KOLOR lub background: rgba(...)
+   ================================================================ */
+.color-zielony      { background: #4A8C5C; }   /* ← kolor: zielony */
+.color-pomaranczowy { background: #D4622D; }   /* ← kolor: pomarańczowy */
+.color-ciemnozielony{ background: #1E4030; }   /* ← kolor: ciemno zielony */
+.color-szary        { background: #7A7A7A; }   /* ← kolor: szary */
+.color-fioletowy    { background: #7B5EA7; }   /* ← kolor: fioletowy */
+
+/* Nazwa wybranego koloru — wyświetlana obok kropek */
+.color-selected-name {
+  font-family: var(--font-headings);
+  font-size: 12px;          /* ← rozmiar nazwy wybranego koloru */
+  font-style: italic;
+  color: var(--terra-dk);
+  min-width: 80px;
+}
+
+/* Ostrzeżenie gdy nie wybrano koloru */
+.color-warning {
+  font-family: var(--font-headings);
+  font-size: 11px;
+  font-style: italic;
+  color: #A32D2D;
+  margin-top: 4px;
+  display: none;
+}
+.color-warning.show { display: block; }

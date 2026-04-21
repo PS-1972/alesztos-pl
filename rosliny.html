@@ -43,9 +43,24 @@
         <button class="cart-btn" onclick="window.location.href='sklep.html'">
           &#128722; Sklep
         </button>
-      </div>
+      <!-- Hamburger — widoczny tylko na telefonie -->
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobilne menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="sklep.html">Sklep</a></li>
+      <li><a href="rosliny.html" class="active">Rośliny</a></li>
+      <li><a href="index.html#pobierz">Pobierz</a></li>
+      <li><a href="index.html#omnie">O mnie</a></li>
+    </ul>
+    <button class="mobile-cart-btn" onclick="window.location.href='sklep.html'">&#128722; Sklep</button>
+  </div>
 
   <div class="wrap">
 
@@ -183,6 +198,21 @@ Klasy kolorów: bt2 (zieleń), bt4 (ciemna zieleń), bt5 (brąz), bt6 (mięta)
       player.classList.add('active');
       video.play();
     }
+  </script>
+
+  <script>
+    function toggleMenu() {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobileMenu');
+      btn.classList.toggle('open');
+      menu.classList.toggle('open');
+    }
+    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.getElementById('hamburger').classList.remove('open');
+        document.getElementById('mobileMenu').classList.remove('open');
+      });
+    });
   </script>
 </body>
 

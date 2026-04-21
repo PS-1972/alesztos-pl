@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — AleSztos_pl</title>
-<link rel="stylesheet" href="style.css">
-<!--
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — AleSztos_pl</title>
+  <link rel="stylesheet" href="style.css">
+  <!--
 ╔══════════════════════════════════════════════════════════════════╗
 ║  BLOG — blog.html                                                ║
 ║                                                                  ║
@@ -25,186 +26,204 @@
 ╚══════════════════════════════════════════════════════════════════╝
 -->
 </head>
+
 <body>
 
-<div class="blob-wrap">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-  <div class="blob blob-4"></div>
-</div>
+  <div class="blob-wrap">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo">AleSztos<em>_pl</em></a>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="sklep.html">Sklep</a></li>
-        <li><a href="rosliny.html">Rośliny</a></li>
-        <li><a href="index.html#pobierz">Pobierz</a></li>
-        <li><a href="index.html#omnie">O mnie</a></li>
-      </ul>
-      <button class="cart-btn" onclick="window.location.href='sklep.html'">
-        &#128722; Sklep
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">AleSztos<em>_pl</em></a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="sklep.html">Sklep</a></li>
+          <li><a href="rosliny.html">Rośliny</a></li>
+          <li><a href="index.html#pobierz">Pobierz</a></li>
+          <li><a href="index.html#omnie">O mnie</a></li>
+        </ul>
+        <button class="cart-btn" onclick="window.location.href='sklep.html'">
+          &#128722; Sklep
+        </button>
+      <!-- Hamburger — widoczny tylko na telefonie -->
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
       </button>
     </div>
+  </nav>
+
+  <!-- Mobilne menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="sklep.html">Sklep</a></li>
+      <li><a href="rosliny.html">Rośliny</a></li>
+      <li><a href="index.html#pobierz">Pobierz</a></li>
+      <li><a href="index.html#omnie">O mnie</a></li>
+    </ul>
+    <button class="mobile-cart-btn" onclick="window.location.href='sklep.html'">&#128722; Sklep</button>
   </div>
-</nav>
 
-<div class="wrap">
+  <div class="wrap">
 
-  <div class="page-header">
-    <div class="breadcrumb"><a href="index.html">Strona główna</a> / Blog</div>
-    <h1>Blog</h1>
-    <p>Wzory na szydełku i drutach, tutoriale wideo i porady o roślinach</p>
-  </div>
-
-  <section class="section">
-    <div class="section-header">
-      <h2 class="section-title">Wszystkie wpisy</h2>
+    <div class="page-header">
+      <div class="breadcrumb"><a href="index.html">Strona główna</a> / Blog</div>
+      <h1>Blog</h1>
+      <p>Wzory na szydełku i drutach, tutoriale wideo i porady o roślinach</p>
     </div>
 
-    <div class="blog-grid">
-
-      <!-- ► NOWE WPISY WSTAWIAJ TUTAJ NA GÓRZE ◄ -->
-
-      <!-- WPIS WIDEO 1 -->
-      <div class="blog-entry glass-card" data-cat="Szydełko">
-        <div class="blog-video">
-          <div class="video-preview" onclick="playVideo(this)">
-            <img src="images/video-granny-thumb.jpg" alt="Granny square tutorial" onerror="this.style.background='rgba(212,133,90,0.15)'">
-            <div class="video-badge">WIDEO</div>
-            <div class="play-btn"></div>
-            <div class="video-duration">8:14</div>
-          </div>
-          <div class="video-player">
-            <video controls preload="metadata" poster="images/video-granny-thumb.jpg">
-              <source src="videos/tutorial-granny-square.mp4" type="video/mp4">
-              Twoja przeglądarka nie obsługuje wideo.
-            </video>
-          </div>
-        </div>
-        <div class="blog-body">
-          <div class="blog-cat">Szydełko</div>
-          <div class="blog-title">Jak zrobić granny square — tutorial wideo krok po kroku</div>
-          <div class="blog-date">18 kwietnia 2025</div>
-        </div>
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Wszystkie wpisy</h2>
       </div>
 
-      <!-- WPIS WIDEO 2 -->
-      <div class="blog-entry glass-card" data-cat="Rośliny">
-        <div class="blog-video">
-          <div class="video-preview" onclick="playVideo(this)">
-            <img src="images/video-przesadzanie-thumb.jpg" alt="Przesadzanie monstery" onerror="this.style.background='rgba(122,174,132,0.15)'">
-            <div class="video-badge">WIDEO</div>
-            <div class="play-btn"></div>
-            <div class="video-duration">1:37</div>
+      <div class="blog-grid">
+
+        <!-- ► NOWE WPISY WSTAWIAJ TUTAJ NA GÓRZE ◄ -->
+
+        <!-- WPIS WIDEO 1 -->
+        <div class="blog-entry glass-card" data-cat="Szydełko">
+          <div class="blog-video">
+            <div class="video-preview" onclick="playVideo(this)">
+              <img src="images/video-granny-thumb.jpg" alt="Granny square tutorial"
+                onerror="this.style.background='rgba(212,133,90,0.15)'">
+              <div class="video-badge">WIDEO</div>
+              <div class="play-btn"></div>
+              <div class="video-duration">8:14</div>
+            </div>
+            <div class="video-player">
+              <video controls preload="metadata" poster="images/video-granny-thumb.jpg">
+                <source src="videos/tutorial-granny-square.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje wideo.
+              </video>
+            </div>
           </div>
-          <div class="video-player">
-            <video controls preload="metadata" poster="images/video-przesadzanie-thumb.jpg">
-              <source src="videos/Przesadzanie.mp4" type="video/mp4">
-              Twoja przeglądarka nie obsługuje wideo.
-            </video>
+          <div class="blog-body">
+            <div class="blog-cat">Szydełko</div>
+            <div class="blog-title">Jak zrobić granny square — tutorial wideo krok po kroku</div>
+            <div class="blog-date">18 kwietnia 2025</div>
           </div>
         </div>
-        <div class="blog-body">
-          <div class="blog-cat">Rośliny</div>
-          <div class="blog-title">Przesadzanie monstery — jak użyć maty i nie nabrudzić</div>
-          <div class="blog-date">20 kwietnia 2026</div>
+
+        <!-- WPIS WIDEO 2 -->
+        <div class="blog-entry glass-card" data-cat="Rośliny">
+          <div class="blog-video">
+            <div class="video-preview" onclick="playVideo(this)">
+              <img src="images/video-przesadzanie-thumb.jpg" alt="Przesadzanie monstery"
+                onerror="this.style.background='rgba(122,174,132,0.15)'">
+              <div class="video-badge">WIDEO</div>
+              <div class="play-btn"></div>
+              <div class="video-duration">1:37</div>
+            </div>
+            <div class="video-player">
+              <video controls preload="metadata" poster="images/video-przesadzanie-thumb.jpg">
+                <source src="videos/Przesadzanie.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje wideo.
+              </video>
+            </div>
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Rośliny</div>
+            <div class="blog-title">Przesadzanie monstery — jak użyć maty i nie nabrudzić</div>
+            <div class="blog-date">20 kwietnia 2026</div>
+          </div>
         </div>
+
+        <!-- WPIS ARTYKUŁ 1 -->
+        <div class="blog-entry glass-card" data-cat="Szydełko">
+          <div class="blog-thumb bt1">
+            <img src="images/blog-kocyk-granny.jpg" alt="Kocyk granny square" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Szydełko</div>
+            <div class="blog-title">Kocyk dla niemowlaka — wzór granny square krok po kroku</div>
+            <div class="blog-date">12 kwietnia 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS ARTYKUŁ 2 -->
+        <div class="blog-entry glass-card" data-cat="Rośliny">
+          <div class="blog-thumb bt2">
+            <img src="images/blog-monstera.jpg" alt="Monstera deliciosa" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Rośliny</div>
+            <div class="blog-title">Monstera deliciosa — jak i kiedy przesadzać?</div>
+            <div class="blog-date">3 kwietnia 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS ARTYKUŁ 3 -->
+        <div class="blog-entry glass-card" data-cat="Druty">
+          <div class="blog-thumb bt3">
+            <img src="images/blog-przedza-merino.jpg" alt="Test przędzy merino" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Druty</div>
+            <div class="blog-title">Test przędzy: merino vs bawełna — co wybrać na lato?</div>
+            <div class="blog-date">28 marca 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS ARTYKUŁ 4 -->
+        <div class="blog-entry glass-card" data-cat="Szydełko">
+          <div class="blog-thumb bt4">
+            <img src="images/blog-oslonka.jpg" alt="Osłonka na doniczkę" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Szydełko</div>
+            <div class="blog-title">Osłonka na doniczkę — wzór w 30 minut dla początkujących</div>
+            <div class="blog-date">20 marca 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS ARTYKUŁ 5 -->
+        <div class="blog-entry glass-card" data-cat="Rośliny">
+          <div class="blog-thumb bt5">
+            <img src="images/blog-przyklad5.jpg" alt="Fikus" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Rośliny</div>
+            <div class="blog-title">Fikus — jak dbać żeby nie gubił liści?</div>
+            <div class="blog-date">10 marca 2025</div>
+          </div>
+        </div>
+
+        <!-- WPIS ARTYKUŁ 6 -->
+        <div class="blog-entry glass-card" data-cat="Druty">
+          <div class="blog-thumb bt6">
+            <img src="images/blog-przyklad6.jpg" alt="Czapka beanie" onerror="this.style.display='none'">
+          </div>
+          <div class="blog-body">
+            <div class="blog-cat">Druty</div>
+            <div class="blog-title">Czapka beanie na drutach — wzór dla początkujących</div>
+            <div class="blog-date">2 marca 2025</div>
+          </div>
+        </div>
+
       </div>
+    </section>
 
-      <!-- WPIS ARTYKUŁ 1 -->
-      <div class="blog-entry glass-card" data-cat="Szydełko">
-        <div class="blog-thumb bt1">
-          <img src="images/blog-kocyk-granny.jpg" alt="Kocyk granny square" onerror="this.style.display='none'">
-        </div>
-        <div class="blog-body">
-          <div class="blog-cat">Szydełko</div>
-          <div class="blog-title">Kocyk dla niemowlaka — wzór granny square krok po kroku</div>
-          <div class="blog-date">12 kwietnia 2025</div>
-        </div>
-      </div>
-
-      <!-- WPIS ARTYKUŁ 2 -->
-      <div class="blog-entry glass-card" data-cat="Rośliny">
-        <div class="blog-thumb bt2">
-          <img src="images/blog-monstera.jpg" alt="Monstera deliciosa" onerror="this.style.display='none'">
-        </div>
-        <div class="blog-body">
-          <div class="blog-cat">Rośliny</div>
-          <div class="blog-title">Monstera deliciosa — jak i kiedy przesadzać?</div>
-          <div class="blog-date">3 kwietnia 2025</div>
-        </div>
-      </div>
-
-      <!-- WPIS ARTYKUŁ 3 -->
-      <div class="blog-entry glass-card" data-cat="Druty">
-        <div class="blog-thumb bt3">
-          <img src="images/blog-przedza-merino.jpg" alt="Test przędzy merino" onerror="this.style.display='none'">
-        </div>
-        <div class="blog-body">
-          <div class="blog-cat">Druty</div>
-          <div class="blog-title">Test przędzy: merino vs bawełna — co wybrać na lato?</div>
-          <div class="blog-date">28 marca 2025</div>
-        </div>
-      </div>
-
-      <!-- WPIS ARTYKUŁ 4 -->
-      <div class="blog-entry glass-card" data-cat="Szydełko">
-        <div class="blog-thumb bt4">
-          <img src="images/blog-oslonka.jpg" alt="Osłonka na doniczkę" onerror="this.style.display='none'">
-        </div>
-        <div class="blog-body">
-          <div class="blog-cat">Szydełko</div>
-          <div class="blog-title">Osłonka na doniczkę — wzór w 30 minut dla początkujących</div>
-          <div class="blog-date">20 marca 2025</div>
-        </div>
-      </div>
-
-      <!-- WPIS ARTYKUŁ 5 -->
-      <div class="blog-entry glass-card" data-cat="Rośliny">
-        <div class="blog-thumb bt5">
-          <img src="images/blog-przyklad5.jpg" alt="Fikus" onerror="this.style.display='none'">
-        </div>
-        <div class="blog-body">
-          <div class="blog-cat">Rośliny</div>
-          <div class="blog-title">Fikus — jak dbać żeby nie gubił liści?</div>
-          <div class="blog-date">10 marca 2025</div>
-        </div>
-      </div>
-
-      <!-- WPIS ARTYKUŁ 6 -->
-      <div class="blog-entry glass-card" data-cat="Druty">
-        <div class="blog-thumb bt6">
-          <img src="images/blog-przyklad6.jpg" alt="Czapka beanie" onerror="this.style.display='none'">
-        </div>
-        <div class="blog-body">
-          <div class="blog-cat">Druty</div>
-          <div class="blog-title">Czapka beanie na drutach — wzór dla początkujących</div>
-          <div class="blog-date">2 marca 2025</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</div>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">AleSztos_pl</div>
-    <div class="footer-links">
-      <a href="https://www.instagram.com/alesztos_pl/" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:twoj-email@gmail.com">Kontakt</a>
-      <a href="regulamin.html">Regulamin</a>
-    </div>
-    <div class="footer-copy">© 2025 AleSztos_pl — z miłością z Polski</div>
   </div>
-</footer>
 
-<!--
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">AleSztos_pl</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/alesztos_pl/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:twoj-email@gmail.com">Kontakt</a>
+        <a href="regulamin.html">Regulamin</a>
+      </div>
+      <div class="footer-copy">© 2025 AleSztos_pl — z miłością z Polski</div>
+    </div>
+  </footer>
+
+  <!--
 ╔══════════════════════════════════════════════════════════════════╗
 ║  ═══ SZABLON ARTYKUŁU ═══                                        ║
 ║  Skopiuj i wklej NA POCZĄTKU siatki blog-grid                    ║
@@ -253,16 +272,32 @@ Kategorie: Szydełko / Druty / Rośliny
 </div>
 -->
 
-<script>
-function playVideo(previewEl) {
-  var card = previewEl.closest('.blog-video');
-  var player = card.querySelector('.video-player');
-  var video = player.querySelector('video');
-  previewEl.style.display = 'none';
-  player.classList.add('active');
-  video.removeAttribute('poster');
-  video.play();
-}
-</script>
+  <script>
+    function playVideo(previewEl) {
+      var card = previewEl.closest('.blog-video');
+      var player = card.querySelector('.video-player');
+      var video = player.querySelector('video');
+      previewEl.style.display = 'none';
+      player.classList.add('active');
+      video.removeAttribute('poster');
+      video.play();
+    }
+  </script>
+
+  <script>
+    function toggleMenu() {
+      var btn = document.getElementById('hamburger');
+      var menu = document.getElementById('mobileMenu');
+      btn.classList.toggle('open');
+      menu.classList.toggle('open');
+    }
+    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.getElementById('hamburger').classList.remove('open');
+        document.getElementById('mobileMenu').classList.remove('open');
+      });
+    });
+  </script>
 </body>
+
 </html>
