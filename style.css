@@ -535,7 +535,7 @@ footer {
 /* ================================================================
    RESPONSIVE — telefony i małe tablety (do 768px)
    ================================================================ */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   /* Nawigacja — uproszczona na telefon */
   nav { padding: 0 16px; }
   .nav-inner { height: 60px; }  /* ← wysokość paska nawigacji na telefon */
