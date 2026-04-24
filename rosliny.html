@@ -43,11 +43,11 @@
         <button class="cart-btn" onclick="window.location.href='sklep.html'">
           &#128722; Sklep
         </button>
-      <!-- Hamburger — widoczny tylko na telefonie -->
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+        <!-- Hamburger — widoczny tylko na telefonie -->
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
   </nav>
 
   <!-- Mobilne menu -->
@@ -104,7 +104,7 @@
         </div>
 
         <!-- WPIS ARTYKUŁ — monstera -->
-        <div class="blog-entry glass-card" data-cat="Rośliny">
+        <!-- <div class="blog-entry glass-card" data-cat="Rośliny">
           <div class="blog-thumb bt2">
             <img src="images/blog-monstera.jpg" alt="Monstera deliciosa" onerror="this.style.display='none'">
           </div>
@@ -116,7 +116,7 @@
         </div>
 
         <!-- WPIS ARTYKUŁ — fikus -->
-        <div class="blog-entry glass-card" data-cat="Rośliny">
+        <!-- <div class="blog-entry glass-card" data-cat="Rośliny">
           <div class="blog-thumb bt5">
             <img src="images/blog-przyklad5.jpg" alt="Fikus" onerror="this.style.display='none'">
           </div>
@@ -125,7 +125,7 @@
             <div class="blog-title">Fikus — jak dbać żeby nie gubił liści?</div>
             <div class="blog-date">10 marca 2025</div>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </section>
@@ -207,8 +207,8 @@ Klasy kolorów: bt2 (zieleń), bt4 (ciemna zieleń), bt5 (brąz), bt6 (mięta)
       btn.classList.toggle('open');
       menu.classList.toggle('open');
     }
-    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
-      a.addEventListener('click', function() {
+    document.querySelectorAll('.mobile-menu a').forEach(function (a) {
+      a.addEventListener('click', function () {
         document.getElementById('hamburger').classList.remove('open');
         document.getElementById('mobileMenu').classList.remove('open');
       });
