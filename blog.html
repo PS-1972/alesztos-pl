@@ -50,11 +50,11 @@
         <button class="cart-btn" onclick="window.location.href='sklep.html'">
           &#128722; Sklep
         </button>
-      <!-- Hamburger — widoczny tylko na telefonie -->
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+        <!-- Hamburger — widoczny tylko na telefonie -->
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
   </nav>
 
   <!-- Mobilne menu -->
@@ -129,7 +129,7 @@
           </div>
           <div class="blog-body">
             <div class="blog-cat">Rośliny</div>
-            <div class="blog-title">Przesadzanie monstery — jak użyć maty i nie nabrudzić</div>
+            <div class="blog-title">Przesadzanie kwiatów — jak użyć maty aby nie nabrudzić</div>
             <div class="blog-date">20 kwietnia 2026</div>
           </div>
         </div>
@@ -291,8 +291,8 @@ Kategorie: Szydełko / Druty / Rośliny
       btn.classList.toggle('open');
       menu.classList.toggle('open');
     }
-    document.querySelectorAll('.mobile-menu a').forEach(function(a) {
-      a.addEventListener('click', function() {
+    document.querySelectorAll('.mobile-menu a').forEach(function (a) {
+      a.addEventListener('click', function () {
         document.getElementById('hamburger').classList.remove('open');
         document.getElementById('mobileMenu').classList.remove('open');
       });
